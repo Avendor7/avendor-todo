@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Item from './item/item';
+import AddItem from './add-item/add-item';
+
 import './todo.scss';
 
 class Todolist extends Component {
@@ -10,11 +13,12 @@ class Todolist extends Component {
     return (
       <div className="todolist">
         <h2>todo component</h2>
-        <ul>
-            {this.state.items.map((item)=>(
-                <li>{item}</li>
+        <div>
+            {this.state.items.map((item, index)=>(
+                <Item desc={item} key={index} />
             ))}
-        </ul>
+        </div>
+        <AddItem/>
       </div>
     );
   }
