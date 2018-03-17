@@ -18,10 +18,22 @@ class Todolist extends Component {
                 <Item desc={item} key={index} />
             ))}
         </div>
-        <AddItem/>
+        <AddItem onAddItem={(newItem)=>this.handleNewItem(newItem)}/>
       </div>
     );
   }
+  
+  handleNewItem(newItem) {
+    console.log(newItem);
+
+    this.setState({
+      items: [
+        ...this.state.items,
+        newItem,
+      ]
+    });
+  }
+
 }
 
 export default Todolist;

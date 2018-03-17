@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AddItem extends Component {
   state = {
-    newItem: undefined
+    newItem: ''
   }
 
   render() {
@@ -10,7 +10,7 @@ class AddItem extends Component {
       <div className="add-item">
         <label>
             <input type="text" placeholder="ToDo..." value={this.state.newItem} onChange={(e) => this.handleChange(e)}/>
-            <input type="button" value="add" onChange={(e) => this.handleClick(e)}/>
+            <input type="button" value="add" onClick={(e) => this.handleClick(e)}/>
         </label>
       </div>
     );
@@ -21,11 +21,14 @@ class AddItem extends Component {
     this.setState({
         newItem: newValue,
     });
-    
+
   }
 
   handleClick(event) {
-    
+    this.props.onAddItem(this.state.newItem);
+
+    this.setState({newItem: ''});
+
   }
 }
 
