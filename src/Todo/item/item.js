@@ -5,6 +5,7 @@ class Item extends Component {
     return (
       <div className="item">
         <label>
+            {this.props.item.id}
             <input type="checkbox" value="done" checked={this.props.item.done} onChange={(e) => this.handleClick(e)}/>
             {this.props.item.text}
         </label>
