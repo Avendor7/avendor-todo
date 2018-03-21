@@ -10,15 +10,11 @@ class AddItem extends Component {
         done: false,
       }
     };
+    this.baseState = this.state;
   }
 
   clearForm() {
-    this.setState({
-      item: {
-        text: '',
-        done: false,
-      }
-    });
+    this.setState(this.baseState);
   }
 
   render() {
