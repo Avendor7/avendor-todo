@@ -7,8 +7,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Todo</h1>
-        <Todolist/>
+        <div className="row">
+          <div className="header col-sm">
+            <h1>Todo</h1>
+          </div>
+        </div>
+          <Todolist/>
       </div>
     );
   }

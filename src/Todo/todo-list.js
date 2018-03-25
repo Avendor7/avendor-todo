@@ -17,7 +17,7 @@ class Todolist extends Component {
   
   render() {
     return (
-      <div className="todolist">
+      <div className="todolist h-100 justify-content-center align-items-center">
         <h2>todo component</h2>
         <div>
             {Object.values(this.state.items).map((item)=>(

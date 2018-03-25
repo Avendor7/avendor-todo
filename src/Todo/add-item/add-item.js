@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './add-item.scss';
 
 class AddItem extends Component {
   
