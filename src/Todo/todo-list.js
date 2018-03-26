@@ -17,8 +17,8 @@ class Todolist extends Component {
   
   render() {
     return (
-      <div className="todolist h-100 justify-content-center align-items-center">
-        <h2>todo component</h2>
+      <div className="todolist">
+        <h1>TODO</h1>
         <div>
             {Object.values(this.state.items).map((item)=>(
                 <Item item={item} key={item.id} onDoneChange={(itemId, newValue) => this.handleDoneChange(itemId, newValue)} />

@@ -23,6 +23,8 @@ class AddItem extends Component {
       <div className="add-item">
         <label>
             <input type="text" placeholder="ToDo..." value={this.state.item.text} onChange={(e) => this.handleChange(e)}/>
+            <br/>
+            <br/>            
             <input type="button" value="add" onClick={(e) => this.handleClick(e)}/>
         </label>
       </div>
