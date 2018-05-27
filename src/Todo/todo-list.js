@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import Item from './item/item';
 import AddItem from './add-item/add-item';
+import {connect} from 'react-redux';
 
 import './todo.scss';
+import {addTask} from "../Actions/tasks.actions";
+
+const mapStoreToProps = (store) => ({
+   tasks: store.tasks
+});
 
 class Todolist extends Component {
   state = {
@@ -19,6 +25,7 @@ class Todolist extends Component {
     return (
       <div className="todolist">
         <h1>TODO</h1>
+          <span>{this.props.tasks.toString()}</span>
         <div>
             {Object.values(this.state.items).map((item)=>(
                 <Item item={item} key={item.id} onDoneChange={(itemId, newValue) => this.handleDoneChange(itemId, newValue)} />
@@ -39,6 +46,8 @@ class Todolist extends Component {
     newItems[newItem.id] = newItem;
     //set the state again
 
+    this.props.dispatch(addTask(newItem));
+
     this.setState({
       items:newItems,
       nextid:this.state.nextid + 1,
@@ -58,4 +67,6 @@ class Todolist extends Component {
 
 }
 
-export default Todolist;
+export default connect(
+    mapStoreToProps,
+)(Todolist);
